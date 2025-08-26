@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-inter);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +19,21 @@
   }
 }
 
+html { scroll-behavior: smooth; }
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Make native date picker icon white to match labels */
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.2);
+  opacity: 0.9;
+}
+
+/* For Chromium/Edge (non-WebKit variations), attempt color via filter on the input */
+.date-input {
+  color-scheme: dark;
 }
