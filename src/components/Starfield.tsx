@@ -20,7 +20,7 @@ export function Starfield() {
 		}));
 
 		function resize() {
-			if (!canvas) return;
+			if (!canvas || !ctx) return;
 			const { innerWidth, innerHeight } = window;
 			canvas.width = innerWidth * DPR;
 			canvas.height = innerHeight * DPR;
@@ -32,7 +32,7 @@ export function Starfield() {
 		window.addEventListener("resize", resize);
 
 		function tick() {
-			if (!canvas) return;
+			if (!canvas || !ctx) return;
 			const { innerWidth: w, innerHeight: h } = window;
 			ctx.clearRect(0, 0, w, h);
 			for (const star of stars) {
