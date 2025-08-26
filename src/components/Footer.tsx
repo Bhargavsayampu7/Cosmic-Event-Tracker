@@ -7,7 +7,7 @@ export function Footer() {
 					<p className="font-light text-center sm:text-left">{credit}</p>
 					<div className="flex items-center gap-3 sm:gap-4">
 						<a className="underline underline-offset-4 hover:text-white transition-colors" href="https://api.nasa.gov/" target="_blank" rel="noreferrer">NASA Open APIs</a>
-						<a className="underline underline-offset-4 hover:text-white transition-colors" href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+						<a className="underline underline-offset-4 hover:text-white transition-colors" href="https://github.com/Bhargavsayampu7/Cosmic-Event-Tracker" target="_blank" rel="noreferrer">GitHub</a>
 					</div>
 				</div>
 			</div>
