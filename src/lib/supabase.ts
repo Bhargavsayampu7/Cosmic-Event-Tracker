@@ -1,10 +1,14 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string | undefined;
-const supabaseAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string | undefined;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl || "", supabaseAnon || "");
+// Only create client if environment variables are available
+export const supabase: SupabaseClient | null = 
+  supabaseUrl && supabaseAnon 
+    ? createClient(supabaseUrl, supabaseAnon)
+    : null;
 
 export function hasSupabaseEnv(): boolean {
-	return Boolean(supabaseUrl && supabaseAnon);
+  return Boolean(supabaseUrl && supabaseAnon);
 }

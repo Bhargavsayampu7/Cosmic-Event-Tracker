@@ -4,13 +4,15 @@ import { useSession } from "@/lib/auth";
 
 export function AuthButtons() {
 	const { session } = useSession();
-	if (!hasSupabaseEnv()) return null;
+	if (!hasSupabaseEnv() || !supabase) return null;
 	return (
 		<div className="text-sm">
 			{session ? (
 				<button
 					onClick={async () => {
-						await supabase.auth.signOut();
+						if (supabase) {
+							await supabase.auth.signOut();
+						}
 					}}
 					className="px-4 py-1.5 rounded-full border border-white/20 bg-white/10 hover:bg-white/15 text-white backdrop-blur transition"
 				>
@@ -19,7 +21,9 @@ export function AuthButtons() {
 			) : (
 				<button
 					onClick={async () => {
-						await supabase.auth.signInWithOAuth({ provider: "github" });
+						if (supabase) {
+							await supabase.auth.signInWithOAuth({ provider: "github" });
+						}
 					}}
 					className="px-4 py-1.5 rounded-full border border-white/20 bg-white/10 hover:bg-white/15 text-white backdrop-blur transition"
 				>

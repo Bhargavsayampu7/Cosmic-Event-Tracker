@@ -29,7 +29,7 @@ type NeoState = {
 	clearSelection: () => void;
 };
 
-export const useNeoStore = create<NeoState>((set, get) => ({
+export const useNeoStore = create<NeoState>((set) => ({
 	cacheByDate: {},
 	selectedIds: new Set<string>(),
 	filters: { showOnlyHazardous: false, sortBy: "date_asc" },

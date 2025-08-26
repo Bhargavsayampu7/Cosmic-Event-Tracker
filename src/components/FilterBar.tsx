@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { format } from "date-fns";
 import { addDays, formatYmd, fetchNeoFeed, groupNeosByDate } from "@/lib/nasa";
 import { useNeoStore } from "@/store/neoStore";
 
@@ -23,7 +22,7 @@ export function FilterBar() {
 			const data = await fetchNeoFeed({ start_date: start, end_date: end });
 			mergeFeed(groupNeosByDate(data));
 			setRange({ startYmd: start, endYmd: end });
-		} catch (e: any) {
+		} catch (_: any) {
 			setError("Unable to load that range. A maximum of 3 days is supported. Please refresh and try again.");
 		} finally {
 			setLoading(false);

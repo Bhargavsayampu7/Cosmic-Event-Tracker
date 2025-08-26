@@ -8,6 +8,11 @@ export function useSession() {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
+		if (!supabase) {
+			setLoading(false);
+			return;
+		}
+
 		let isMounted = true;
 		(async () => {
 			const { data } = await supabase.auth.getSession();
