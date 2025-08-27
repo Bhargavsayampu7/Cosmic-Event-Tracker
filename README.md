@@ -1,4 +1,5 @@
-# Cosmic Event Tracker (https://cosmic-event-tracker-six.vercel.app/#events)
+# Cosmic Event Tracker
+# [Cosmic Event Tracker](https://cosmic-event-tracker-six.vercel.app/#events) 
 
 A luxury space-themed web application that displays information about Near-Earth Objects (NEOs) using NASA's Open APIs. Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 
